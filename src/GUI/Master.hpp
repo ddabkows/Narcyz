@@ -32,8 +32,8 @@ class Master {
     }
 
     // Copy
-    Master(const myClass&) = delete;
-    myClass& operator=(const myClass&) = delete;
+    Master(const myClass&) = default;
+    myClass& operator=(const myClass&) = default;
 
     // Move
     Master(myClass&&) = delete;
@@ -43,8 +43,9 @@ class Master {
     void setupWindow();
     bool pollEvent(sf::Event);
     void clearWindow();
-    void drawWindow();
+    void drawRectangle(sf::RectangleShape);
     void displayWindow();
+    void closeWindow();
 
     // Setters
 

@@ -22,14 +22,17 @@ void Master::clearWindow() {
   _window->clear();
 }
 
-void Master::drawWindow() {
-  
+void Master::drawRectangle(sf::RectangleShape rectangle) {
+  _window->draw(rectangle);
 }
 
 void Master::displayWindow() {
   _window->display();
 }
 
+void Master::closeWindow() {
+  _window->close();
+}
 
 
 // Setters
