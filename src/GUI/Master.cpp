@@ -21,6 +21,10 @@ const bool& Master::pollEvent(sf::Event event) const {
 void Master::clearWindow() {
   _window->clear();
 }
+void Master::drawWindow() {
+  
+}
+
 
 
 // Setters
