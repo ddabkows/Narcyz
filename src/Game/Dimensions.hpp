@@ -10,7 +10,6 @@
 
 
 struct Dimensions {
-  Dimensions(int x_to_be, int y_to_be) : x(x_to_be), y(y_to_be) {}
   int x;
   int y;
 };

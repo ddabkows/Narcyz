@@ -15,6 +15,7 @@ class GameBoard {
   private:
     // Trait
     using myClass = GameBoard;
+    Dimensions _inside_limits;
     
   public:
     // Constructor
