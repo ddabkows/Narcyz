@@ -4,6 +4,9 @@
 */
 
 
+#include "Dimensions.hpp"
+
+
 #ifndef _GAME_BOARD_H_
 #define _GAME_BOARD_H_
 
