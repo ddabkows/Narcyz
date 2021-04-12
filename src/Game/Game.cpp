@@ -9,6 +9,9 @@
 
 
 // Methods
+void Game::movePlayerHorizontal(int move_x) {
+  _player.horizontalMove(move_x);
+}
 
 
 // Setters
@@ -17,3 +20,5 @@
 // Getters
 const GameBoard& Game::getBoard() const {return _gameboard;}
 const GameEntity& Game::getPlayer() const {return _player;}
+const Dimensions& Game::getPlayerSize() const {return _player.getSize();}
+const Dimensions& Game::getPlayerPosition() const {return _player.getPosition();}

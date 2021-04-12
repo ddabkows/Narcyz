@@ -35,12 +35,15 @@ class Game final {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
+    void movePlayerHorizontal(int);
 
     // Setters
 
     // Getters
     const GameBoard& getBoard() const;
     const GameEntity& getPlayer() const;
+    const Dimensions& getPlayerSize() const;
+    const Dimensions& getPlayerPosition() const;
 
     // Destructor
     ~Game() = default;
