@@ -34,6 +34,7 @@ class GameEntity {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
+    void horizontalMove(int);
 
     // Setters
     void setSize(int, int);

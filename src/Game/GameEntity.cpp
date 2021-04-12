@@ -8,6 +8,12 @@
 #include "GameEntity.hpp"
 
 
+// Methods
+void GameEntity::horizontalMove(int move_x) {
+  _position.x += move_x;
+}
+
+
 // Setters
 void GameEntity::setSize(int size_x, int size_y) {
   _size.x = size_x;
