@@ -20,7 +20,7 @@ class GameEntity {
 
   public:
     // Constructor
-    GameEntity(int size_x, int size_y, int pos_x, int pos_y) : _position(),
+    GameEntity(float size_x, float size_y, float pos_x, float pos_y) : _position(),
                                                                _size() {
       setSize(size_x, size_y);
       setPosition(pos_x, pos_y);
@@ -35,11 +35,11 @@ class GameEntity {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
-    void horizontalMove(int);
+    void horizontalMove(float);
 
     // Setters
-    void setSize(int, int);
-    void setPosition(int, int);
+    void setSize(float, float);
+    void setPosition(float, float);
 
     // Getters
     const Dimensions& getSize() const;
