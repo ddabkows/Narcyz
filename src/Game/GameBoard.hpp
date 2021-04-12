@@ -20,7 +20,7 @@ class GameBoard {
     
   public:
     // Constructor
-    GameBoard() {}
+    GameBoard(int size_x, int size_y) {}
 
     // Copy
     GameBoard(const myClass&) = delete;
@@ -29,6 +29,9 @@ class GameBoard {
     // Move
     GameBoard(myClass&&) = delete;
     myClass& operator=(myClass&&) = delete;
+
+    // Methods
+    void setSize();
 
     // Destructor
     ~GameBoard() = default;
