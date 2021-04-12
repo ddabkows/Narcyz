@@ -20,5 +20,6 @@ void Game::movePlayerHorizontal(int move_x) {
 // Getters
 const GameBoard& Game::getBoard() const {return _gameboard;}
 const GameEntity& Game::getPlayer() const {return _player;}
+const Dimensions& Game::getBoardSize() const {return _gameboard.getSize();}
 const Dimensions& Game::getPlayerSize() const {return _player.getSize();}
 const Dimensions& Game::getPlayerPosition() const {return _player.getPosition();}

@@ -22,9 +22,7 @@ class Game final {
   public:
     // Constructor
     Game() : _gameboard(800, 600),
-             _player(20, 50, 0, 800-50) {
-      
-    }
+             _player(20, 50, 0, 800-50) {}
 
     // Copy
     Game(const myClass&) = delete;
@@ -42,6 +40,7 @@ class Game final {
     // Getters
     const GameBoard& getBoard() const;
     const GameEntity& getPlayer() const;
+    const Dimensions& getBoardSize() const;
     const Dimensions& getPlayerSize() const;
     const Dimensions& getPlayerPosition() const;
 
