@@ -20,7 +20,7 @@ class GameBoard {
     
   public:
     // Constructor
-    GameBoard(int size_x, int size_y) {
+    GameBoard(int size_x, int size_y) : _inside_limits() {
       setSize(size_x, size_y);
     }
 
