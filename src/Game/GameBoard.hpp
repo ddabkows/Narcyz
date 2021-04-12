@@ -20,7 +20,7 @@ class GameBoard final {
     
   public:
     // Constructor
-    GameBoard(int size_x, int size_y) : _inside_limits() {
+    GameBoard(float size_x, float size_y) : _inside_limits() {
       setSize(size_x, size_y);
     }
 
@@ -35,7 +35,7 @@ class GameBoard final {
     // Methods
 
     // Setters
-    void setSize(int, int);
+    void setSize(float, float);
 
     // Getters
     const Dimensions& getSize() const;

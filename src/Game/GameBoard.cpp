@@ -9,7 +9,7 @@
 
 
 // Setters
-void GameBoard::setSize(int size_x, int size_y) {
+void GameBoard::setSize(float size_x, float size_y) {
   _inside_limits.x = size_x;
   _inside_limits.y = size_y;
 }
