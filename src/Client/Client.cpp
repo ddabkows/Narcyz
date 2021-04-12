@@ -7,6 +7,7 @@
 
 #include "../Game/GameBoard.hpp"
 #include "../Game/Dimensions.hpp"
+#include <iostream>
 
 
 int main() {
