@@ -17,11 +17,11 @@ class Game final {
     //Trait
     using myClass = Game;
 
-    const int _GAMEBOARD_SIZE_X = 800;
-    const int _GAMEBOARD_SIZE_Y = 600;
-    const int _PLAYER_SIZE_X = 20;
-    const int _PLAYER_SIZE_Y = 50;
-    const int _MOVE_DISTANCE = 3;
+    const float _GAMEBOARD_SIZE_X = 800;
+    const float _GAMEBOARD_SIZE_Y = 600;
+    const float _PLAYER_SIZE_X = 20;
+    const float _PLAYER_SIZE_Y = 50;
+    const float _MOVE_DISTANCE = 3;
 
     GameBoard _gameboard;
     GameEntity _player;
@@ -29,7 +29,7 @@ class Game final {
   public:
     // Constructor
     Game() : _gameboard(_GAMEBOARD_SIZE_X, _GAMEBOARD_SIZE_Y),
-             _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, 0, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_Y) / 2) {}
+             _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y)) {}
 
     // Copy
     Game(const myClass&) = delete;
@@ -40,7 +40,7 @@ class Game final {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
-    void movePlayerHorizontal(int);
+    void movePlayerHorizontal(float);
 
     // Setters
 

@@ -10,8 +10,8 @@
 
 
 // Methods
-void Game::movePlayerHorizontal(int move_x) {
-  int move_direction = _MOVE_DISTANCE;
+void Game::movePlayerHorizontal(float move_x) {
+  float move_direction = _MOVE_DISTANCE;
   if (move_x < 0) {
     move_direction = -move_direction;
   }
