@@ -1,0 +1,17 @@
+ /*
+  Author : Dominik Dabkowski
+  Specs  : GNU C++ version 10.2 - "gg+ -std=c++17"
+  Code   : Rectangle methods
+*/
+
+
+#include "Rectangle.hpp"
+
+
+void Rectangle::setupRectangle(float pos_x, float pos_y, sf::Color inside_color, sf::Color outline_color, float outline_thickness, float rotation) {
+  _rectangle.setPosition(pos_x, pos_y);
+  _rectangle.setFillColor(inside_color);
+  _rectangle.setOutlineColor(outline_color);
+  _rectangle.setOutlineThickness(outline_thickness);
+  _rectangle.setRotation(rotation);
+}
