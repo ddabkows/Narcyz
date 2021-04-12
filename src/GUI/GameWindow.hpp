@@ -17,9 +17,11 @@ class GameWindow {
     // Trait
     using myClass = GameWindow;
 
+    Rectangle _background;
+
   public:
     // Constructor
-    GameWindow() {}
+    GameWindow() : _background(800.f, 600.f, 0.f, 0.f, sf::Color(0, 0, 0, 255), sf::Color(0, 0, 0, 255), 0.f, 0.f) {}
 
     // Copy
     GameWindow(const myClass&) = delete;
