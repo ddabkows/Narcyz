@@ -1,7 +1,7 @@
 /*
   Author : Dominik Dabkowski
   Specs  : GNU C++ version 10.2 - "gg+ -std=c++17"
-  Code   : Class of Game
+  Code   : Class of Master
 */
 
 
@@ -23,10 +23,12 @@ class Master {
     const int _GAMEBOARD_SIZE_X = 800;
     const int _GAMEBOARD_SIZE_Y = 600;
 
-    std::shared_ptr<sf::RenderWindow> window;
+    std::shared_ptr<sf::RenderWindow> _window;
   public:
     // Constructor
-    Master() : window() {};
+    Master() : _window() {
+      setupWindow();
+    }
 
     // Copy
     Master(const myClass&) = delete;
@@ -42,6 +44,7 @@ class Master {
     // Setters
 
     // Getters
+    const std::shared_ptr<sf::RenderWindow>& getWindow() const;
 
     // Destructor
     ~Master() = default;
