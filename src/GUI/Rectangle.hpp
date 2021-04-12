@@ -38,6 +38,7 @@ class Rectangle final {
 
     // Methods
     void setupRectangle(float, float, sf::Color, sf::Color, float, float);
+    const sf::RectangleShape& getRectangle() const;
 
     // Setters
 

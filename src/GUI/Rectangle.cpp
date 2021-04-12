@@ -8,6 +8,7 @@
 #include "Rectangle.hpp"
 
 
+// Methods
 void Rectangle::setupRectangle(float pos_x, float pos_y, sf::Color inside_color, sf::Color outline_color, float outline_thickness, float rotation) {
   _rectangle.setPosition(pos_x, pos_y);
   _rectangle.setFillColor(inside_color);
@@ -15,3 +16,9 @@ void Rectangle::setupRectangle(float pos_x, float pos_y, sf::Color inside_color,
   _rectangle.setOutlineThickness(outline_thickness);
   _rectangle.setRotation(rotation);
 }
+
+
+// Setters
+
+// Getters
+const sf::RectangleShape& Rectangle::getRectangle() const {return _rectangle;}
