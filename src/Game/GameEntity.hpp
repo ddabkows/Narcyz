@@ -22,7 +22,8 @@ class GameEntity {
     // Constructor
     GameEntity(int size_x, int size_y, int pos_x, int pos_y) : _position(),
                                                                _size() {
-      
+      setSize(size_x, size_y);
+      setPosition(pos_x, pos_y);
     }
 
     // Copy
@@ -43,5 +44,8 @@ class GameEntity {
     // Getters
     const Dimensions& getSize() const;
     const Dimensions& getPosition() const;
+    
+    // Destructor
+    ~GameEntity() = default;
 };
 #endif
