@@ -24,6 +24,7 @@ class Master {
     const unsigned _GAMEBOARD_SIZE_Y = 600;
 
     std::shared_ptr<sf::RenderWindow> _window;
+
   public:
     // Constructor
     Master() : _window() {
@@ -40,7 +41,7 @@ class Master {
 
     // Methods
     void setupWindow();
-    const bool& pollEvent(sf::Event) const;
+    bool pollEvent(sf::Event);
     void clearWindow();
     void drawWindow();
     void displayWindow();
@@ -49,7 +50,7 @@ class Master {
 
     // Getters
     const std::shared_ptr<sf::RenderWindow>& getWindow() const;
-    const bool& getOpen() const;
+    bool getOpen();
 
     // Destructor
     ~Master() = default;
