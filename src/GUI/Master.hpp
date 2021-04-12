@@ -20,8 +20,8 @@ class Master {
     // Trait
     using myClass = Master;
 
-    const int _GAMEBOARD_SIZE_X = 800;
-    const int _GAMEBOARD_SIZE_Y = 600;
+    const unsigned _GAMEBOARD_SIZE_X = 800;
+    const unsigned _GAMEBOARD_SIZE_Y = 600;
 
     std::shared_ptr<sf::RenderWindow> _window;
   public:
@@ -45,6 +45,7 @@ class Master {
 
     // Getters
     const std::shared_ptr<sf::RenderWindow>& getWindow() const;
+    const bool& getOpen() const;
 
     // Destructor
     ~Master() = default;
