@@ -22,30 +22,20 @@ int main() {
   Master master_gui;
   GameWindow game_win(game.getPlayerSize().x, game.getPlayerSize().y, game.getPlayerPosition().x, game.getPlayerPosition().y);
   bool keepProgramOpen = true;
-  int game_win_output;
+  std::string game_win_output;
   while (keepProgramOpen) {
     sf::Event event;
 
-    while(master_gui.pollEvent(event)) {
-      game_win_output = game_win.processEvent(event);
+    while(master_gui.getWindow()->pollEvent(event)) {game_win_output = game_win.processEvent(event);}
+    
+    if (game_win_output == "close window") {
+      master_gui.closeWindow();
     }
-
-    switch (game_win_output) {
-      case 0 : {
-        master_gui.closeWindow();
-        break;
-      }
-      case 1 : {
-        game.movePlayerHorizontal(1);
-        break;
-      }
-      case 2 : {
-        game.movePlayerHorizontal(-1);
-        break;
-      }
-      default : {
-        break;
-      }
+    else if (game_win_output == "move left") {
+      game.movePlayerHorizontal(1);
+    }
+    else if (game_win_output == "move right") {
+      game.movePlayerHorizontal(-1);
     }
 
     master_gui.clearWindow();

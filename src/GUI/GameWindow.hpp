@@ -38,7 +38,7 @@ class GameWindow {
 
     // Methods
     void drawWindow(Master);
-    int processEvent(sf::Event);
+    std::string processEvent(sf::Event);
 
     // Setters
 

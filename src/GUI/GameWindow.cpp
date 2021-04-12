@@ -6,6 +6,7 @@
 
 
 #include "GameWindow.hpp"
+#include <iostream>
 
 
 // Methods
@@ -14,30 +15,34 @@ void GameWindow::drawWindow(Master master) {
   master.drawRectangle(_player.getRectangle());
 }
 
-int GameWindow::processEvent(sf::Event user_event) {
-  int user_event_result;
+std::string GameWindow::processEvent(sf::Event user_event) {
+  std::string user_event_result;
 
   switch (user_event.type) {
     case sf::Event::Closed : {
-      user_event_result = 0;
+      user_event_result = "close window";
       break;
     }
     case sf::Event::KeyPressed : {
       if (user_event.key.code == 3) {
-        user_event_result = 1;
+        user_event_result = "move right";
         break;
       }
       else if (user_event.key.code == 0) {
-        user_event_result = 2;
+        user_event_result = "move left";
+        break;
+      }
+      else {
+        user_event_result = "do nothing";
         break;
       }
       break;
     }
     default : {
-      user_event_result = 4;
+      user_event_result = "do nothing";
       break;
     }
   }
-
+  
   return user_event_result;
 }

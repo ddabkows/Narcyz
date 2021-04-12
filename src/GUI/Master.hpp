@@ -41,7 +41,6 @@ class Master {
 
     // Methods
     void setupWindow();
-    bool pollEvent(sf::Event);
     void clearWindow();
     void drawRectangle(sf::RectangleShape);
     void displayWindow();
@@ -50,7 +49,7 @@ class Master {
     // Setters
 
     // Getters
-    const std::shared_ptr<sf::RenderWindow>& getWindow() const;
+     std::shared_ptr<sf::RenderWindow>& getWindow();
     bool getOpen();
 
     // Destructor
