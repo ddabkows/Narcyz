@@ -29,7 +29,7 @@ class Game final {
   public:
     // Constructor
     Game() : _gameboard(_GAMEBOARD_SIZE_X, _GAMEBOARD_SIZE_Y),
-             _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, 0, _GAMEBOARD_SIZE_X - _PLAYER_SIZE_Y) {}
+             _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, 0, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_Y) / 2) {}
 
     // Copy
     Game(const myClass&) = delete;
