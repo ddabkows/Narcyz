@@ -39,6 +39,8 @@ class Game final {
     // Setters
 
     // Getters
+    const GameBoard& getBoard() const;
+    const GameEntity& getPlayer() const;
 
     // Destructor
     ~Game() = default;
