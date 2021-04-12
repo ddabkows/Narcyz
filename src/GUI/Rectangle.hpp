@@ -38,11 +38,15 @@ class Rectangle final {
 
     // Methods
     void setupRectangle(float, float, sf::Color, sf::Color, float, float);
-    const sf::RectangleShape& getRectangle() const;
+    void moveX(float);
 
     // Setters
+    void setPosition(float, float);
 
     // Getters
+    const sf::RectangleShape& getRectangle() const;
+    const float& getX() const;
+    const float& getY() const;
 
     // Destructor
     ~Rectangle() = default;

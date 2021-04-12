@@ -17,8 +17,17 @@ void Rectangle::setupRectangle(float pos_x, float pos_y, sf::Color inside_color,
   _rectangle.setRotation(rotation);
 }
 
+void Rectangle::moveX(float move_x) {
+  _rectangle.setPosition(getX() + move_x, getY());
+}
+
 
 // Setters
+void Rectangle::setPosition(float pos_x, float pos_y) {
+  _rectangle.setPosition(pos_x, pos_y);
+}
 
 // Getters
 const sf::RectangleShape& Rectangle::getRectangle() const {return _rectangle;}
+const float& Rectangle::getX() const {return _rectangle.getPosition().x;}
+const float& Rectangle::getY() const {return _rectangle.getPosition().y;}
