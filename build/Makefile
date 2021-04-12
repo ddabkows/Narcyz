@@ -127,7 +127,7 @@ $(G_BUILD_DIR)/%.o : $(G_SRC_DIR)/%.cpp
 
 # CLIENT ------------------------------------------------------------------------
 
-$(CLIENT): LIBS := $(CLIENT_LIBS)
+$(CLIENT): LIBS := $(CLIENT_LIBS) $(G_LIBS) $(GUI_LIBS)
 $(CLIENT): INCLUDES := $(C_INCLUDES) $(GUI_INCLUDES) $(G_INCLUDES)
 $(CLIENT): $(C_OBJS) $(GUI_OBJS) $(G_OBJS)
 	@echo Linking $@
