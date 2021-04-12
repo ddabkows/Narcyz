@@ -43,6 +43,7 @@ class Master {
     const bool& pollEvent(sf::Event) const;
     void clearWindow();
     void drawWindow();
+    void displayWindow();
 
     // Setters
 
