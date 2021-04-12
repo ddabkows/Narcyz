@@ -12,7 +12,7 @@
 #define _GAME_BOARD_H_
 
 
-class GameBoard {
+class GameBoard final {
   private:
     // Trait
     using myClass = GameBoard;
