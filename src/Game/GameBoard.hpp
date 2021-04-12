@@ -33,7 +33,12 @@ class GameBoard {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
+
+    // Setters
     void setSize(int, int);
+
+    // Getters
+    const Dimensions& getSize() const;
 
     // Destructor
     ~GameBoard() = default;
