@@ -22,13 +22,33 @@ void GameWindow::processEvent(sf::Event user_event) {
       _close_window = true;
       break;
     }
+    case sf::Event::KeyReleased : {
+      if (user_event.key.code == 3) {
+        _move_right = false;
+        break;
+      }
+      else if (user_event.key.code == 0) {
+        _move_left = false;
+        break;
+      }
+      else if (user_event.key.code == 57) {
+        _jump = false;
+        break;
+      }
+      break;
+    }
     case sf::Event::KeyPressed : {
+      std::cout << user_event.key.code << std::endl;
       if (user_event.key.code == 3) {
         _move_right = true;
         break;
       }
       else if (user_event.key.code == 0) {
         _move_left = true;
+        break;
+      }
+      else if (user_event.key.code == 57) {
+        _jump = true;
         break;
       }
       break;

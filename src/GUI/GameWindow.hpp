@@ -25,6 +25,7 @@ class GameWindow {
     bool _move_right = false;
     bool _move_left = false;
     bool _close_window = false;
+    bool _jump = false;
 
   public:
     // Constructor
