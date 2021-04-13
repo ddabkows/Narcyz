@@ -13,7 +13,7 @@ int main() {
   ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false);
   Game game;
   Master master_gui;
-  GameWindow game_win(game.getPlayerSize().x, game.getPlayerSize().y, game.getPlayerPosition().x, game.getPlayerPosition().y);
+  GameWindow game_win(game.getPlayerSize().x / game.getPlayerSize().x, game.getPlayerSize().y / game.getPlayerSize().y, game.getPlayerPosition().x, game.getPlayerPosition().y, master_gui.getPlayerTexture());
   bool keepProgramOpen = true;
   sf::Clock game_clock;
 

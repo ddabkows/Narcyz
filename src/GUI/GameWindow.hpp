@@ -5,10 +5,11 @@
 */
 
 
-#include "Rectangle.hpp"
-#include "Master.hpp"
 #include "../Game/Dimensions.hpp"
 #include <memory>
+#include "Rectangle.hpp"
+#include "Sprite.hpp"
+#include "Master.hpp"
 
 
 #ifndef _GAME_WINDOW_H_
@@ -21,7 +22,7 @@ class GameWindow {
     using myClass = GameWindow;
 
     Rectangle _background;
-    Rectangle _player;
+    Sprite _player;
     bool _move_right = false;
     bool _move_left = false;
     bool _close_window = false;
@@ -29,9 +30,9 @@ class GameWindow {
 
   public:
     // Constructor
-    GameWindow(float player_size_x, float player_size_y, float player_pos_x, float player_pos_y) : 
+    GameWindow(float player_size_x, float player_size_y, float player_pos_x, float player_pos_y, std::shared_ptr<sf::Texture> texture) : 
       _background(800.f, 600.f, 0.f, 0.f, sf::Color::Green, sf::Color(0, 0, 0, 255), 0.f, 0.f),
-      _player(player_size_x, player_size_y, player_pos_x, player_pos_y, sf::Color(255, 255, 255, 255), sf::Color(255, 255, 255, 255), 0.f, 0.f) {}
+      _player(player_size_x, player_size_y, player_pos_x, player_pos_y, sf::Color(255, 255, 255, 255), 0.f, texture) {}
 
     // Copy
     GameWindow(const myClass&) = delete;

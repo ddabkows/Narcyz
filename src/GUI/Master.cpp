@@ -15,12 +15,21 @@ void Master::setupWindow() {
   _window->setFramerateLimit(60);
 }
 
+void Master::setupPlayerTexture() {
+  _player_texture = std::make_shared<sf::Texture>();
+  _player_texture->loadFromFile("../img/player.png");
+}
+
 void Master::clearWindow() {
   _window->clear();
 }
 
 void Master::drawRectangle(sf::RectangleShape rectangle) {
   _window->draw(rectangle);
+}
+
+void Master::drawSprite(sf::Sprite sprite) {
+  _window->draw(sprite);
 }
 
 void Master::displayWindow() {
@@ -37,4 +46,5 @@ void Master::closeWindow() {
 
 // Getters
 std::shared_ptr<sf::RenderWindow>& Master::getWindow() {return _window;}
+std::shared_ptr<sf::Texture>& Master::getPlayerTexture() {return _player_texture;}
 bool Master::getOpen() {return _window->isOpen();}

@@ -24,11 +24,13 @@ class Master {
     const unsigned _GAMEBOARD_SIZE_Y = 600;
 
     std::shared_ptr<sf::RenderWindow> _window;
+    std::shared_ptr<sf::Texture> _player_texture;
 
   public:
     // Constructor
     Master() : _window() {
       setupWindow();
+      setupPlayerTexture();
     }
 
     // Copy
@@ -41,8 +43,10 @@ class Master {
 
     // Methods
     void setupWindow();
+    void setupPlayerTexture();
     void clearWindow();
     void drawRectangle(sf::RectangleShape);
+    void drawSprite(sf::Sprite);
     void displayWindow();
     void closeWindow();
 
@@ -50,6 +54,7 @@ class Master {
 
     // Getters
      std::shared_ptr<sf::RenderWindow>& getWindow();
+     std::shared_ptr<sf::Texture>& getPlayerTexture();
     bool getOpen();
 
     // Destructor

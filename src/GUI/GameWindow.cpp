@@ -12,7 +12,7 @@
 // Methods
 void GameWindow::drawWindow(Master master) {
   master.drawRectangle(_background.getRectangle());
-  master.drawRectangle(_player.getRectangle());
+  master.drawSprite(_player.getSprite());
 }
 
 void GameWindow::processEvent(sf::Event user_event) {
