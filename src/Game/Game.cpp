@@ -37,14 +37,19 @@ void Game::setIfCanJump() {
 
 void Game::setVerticalPosition(float moment) {
   float time_elapsed_since_ground = moment - _moment_of_jump;
-  float vertical_position_to_set = -100.f * time_elapsed_since_ground * time_elapsed_since_ground + 200.f * time_elapsed_since_ground;
+  float vertical_position_to_set = 100.f * time_elapsed_since_ground * time_elapsed_since_ground - 200.f * time_elapsed_since_ground;
 
-  _player.setPosition(_player.getPosition().x, _player.getPosition().y + vertical_position_to_set);
+  _player.setPosition(_player.getPosition().x, _gameboard.getSize().y - _player.getSize().y + vertical_position_to_set);
+}
+
+void Game::putPlayerToGround() {
+  _player.setPosition(_player.getPosition().x, _gameboard.getSize().y - _player.getSize().y);
 }
 
 
 // Setters
 void Game::setJumpMoment(float moment) {
+  _player_can_jump = false;
   _moment_of_jump = moment;
 }
 

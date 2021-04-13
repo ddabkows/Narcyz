@@ -35,6 +35,20 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
     game->movePlayerHorizontal(1, elapsed_time);
     game_win->setPlayerPosition(game->getPlayerPosition());
   }
+  if (!game->getCanJump()) {
+    game->setVerticalPosition(elapsed_time);
+    std::cout << game->getPlayerPosition().y << std::endl;
+    if (game->getPlayerPosition().y > game->getBoardSize().y - game->getPlayerSize().y) {
+      game->putPlayerToGround();
+      game->setIfCanJump();
+    }
+  }
+  else if (game_win->getJump()) {
+    game->setIfCanJump();
+    if (game->getCanJump()) {
+      game->setJumpMoment(elapsed_time);
+    }
+  }
 }
 
 void updateWindow(GameWindow* game_win, Master* master_gui) {

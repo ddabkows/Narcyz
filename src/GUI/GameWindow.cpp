@@ -38,7 +38,7 @@ void GameWindow::processEvent(sf::Event user_event) {
       break;
     }
     case sf::Event::KeyPressed : {
-      std::cout << user_event.key.code << std::endl;
+      // std::cout << user_event.key.code << std::endl;                          <- Useful only to detect which key is pressed
       if (user_event.key.code == 3) {
         _move_right = true;
         break;
@@ -70,3 +70,4 @@ void GameWindow::setPlayerPosition(const Dimensions& pos_to_set) {
 const bool& GameWindow::getCloseWindow() const {return _close_window;}
 const bool& GameWindow::getMoveLeft() const {return _move_left;}
 const bool& GameWindow::getMoveRight() const {return _move_right;}
+const bool& GameWindow::getJump() const {return _jump;}

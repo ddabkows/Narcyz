@@ -52,6 +52,7 @@ class GameWindow {
     const bool& getMoveLeft() const;
     const bool& getMoveRight() const;
     const bool& getCloseWindow() const;
+    const bool& getJump() const;
 
     // Destructor
     ~GameWindow() = default;

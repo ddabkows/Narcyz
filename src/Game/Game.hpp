@@ -24,7 +24,7 @@ class Game final {
     const float _MOVE_DISTANCE = 10;
     float _game_move_clock = 0;
     float _moment_of_jump = 0;
-    float _player_can_jump = true;
+    bool _player_can_jump = true;
 
     GameBoard _gameboard;
     GameEntity _player;
@@ -46,6 +46,7 @@ class Game final {
     void movePlayerHorizontal(float, float);
     void setIfCanJump();
     void setVerticalPosition(float);
+    void putPlayerToGround();
 
     // Setters
     void setJumpMoment(float);
