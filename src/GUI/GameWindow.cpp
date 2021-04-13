@@ -16,7 +16,6 @@ void GameWindow::drawWindow(Master master) {
 }
 
 void GameWindow::processEvent(sf::Event user_event) {
-
   switch (user_event.type) {
     case sf::Event::Closed : {
       _close_window = true;
