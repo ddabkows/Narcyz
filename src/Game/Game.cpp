@@ -26,8 +26,27 @@ void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
   }
 }
 
+void Game::setIfCanJump() {
+  if (_player.getPosition().y == _gameboard.getSize().y - _player.getSize().y) {
+    _player_can_jump = true;
+  }
+  else {
+    _player_can_jump = false;
+  }
+}
+
+void Game::setVerticalPosition(float moment) {
+  float time_elapsed_since_ground = moment - _moment_of_jump;
+  float vertical_position_to_set = -100.f * time_elapsed_since_ground * time_elapsed_since_ground + 200.f * time_elapsed_since_ground;
+
+  _player.setPosition(_player.getPosition().x, _player.getPosition().y + vertical_position_to_set);
+}
+
 
 // Setters
+void Game::setJumpMoment(float moment) {
+  _moment_of_jump = moment;
+}
 
 
 // Getters
@@ -36,3 +55,4 @@ const GameEntity& Game::getPlayer() const {return _player;}
 const Dimensions& Game::getBoardSize() const {return _gameboard.getSize();}
 const Dimensions& Game::getPlayerSize() const {return _player.getSize();}
 const Dimensions& Game::getPlayerPosition() const {return _player.getPosition();}
+const bool& Game::getCanJump() const {return _player_can_jump;}

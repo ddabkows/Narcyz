@@ -23,6 +23,8 @@ class Game final {
     const float _PLAYER_SIZE_Y = 50;
     const float _MOVE_DISTANCE = 10;
     float _game_move_clock = 0;
+    float _moment_of_jump = 0;
+    float _player_can_jump = true;
 
     GameBoard _gameboard;
     GameEntity _player;
@@ -42,8 +44,11 @@ class Game final {
 
     // Methods
     void movePlayerHorizontal(float, float);
+    void setIfCanJump();
+    void setVerticalPosition(float);
 
     // Setters
+    void setJumpMoment(float);
 
     // Getters
     const GameBoard& getBoard() const;
@@ -51,6 +56,7 @@ class Game final {
     const Dimensions& getBoardSize() const;
     const Dimensions& getPlayerSize() const;
     const Dimensions& getPlayerPosition() const;
+    const bool& getCanJump() const;
 
     // Destructor
     ~Game() = default;
