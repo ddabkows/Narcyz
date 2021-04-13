@@ -21,7 +21,7 @@
 #define _CLIENT_H_
 
 
-void setVerticalPosition(GameWindow* game_win, Game* game, sf::Clock game_clock) {
+void setVerticalPosition(Game* game, sf::Clock game_clock) {
   float elapsed_time = game_clock.getElapsedTime().asSeconds();
 
   if (!game->getCanJump()) {
@@ -30,31 +30,29 @@ void setVerticalPosition(GameWindow* game_win, Game* game, sf::Clock game_clock)
       game->putPlayerToGround();
       game->setIfCanJump();
     }
-    game_win->setPlayerPosition(game->getPlayerPosition());
   }
 }
 
 void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Clock game_clock) {
   float elapsed_time = game_clock.getElapsedTime().asSeconds();
-  
+
   if (game_win->getCloseWindow()) {
     master_gui->closeWindow();
   }
   else if (game_win->getMoveLeft()) {
     game->movePlayerHorizontal(-1, elapsed_time);
-    game_win->setPlayerPosition(game->getPlayerPosition());
   }
   else if (game_win->getMoveRight()) {
     game->movePlayerHorizontal(1, elapsed_time);
-    game_win->setPlayerPosition(game->getPlayerPosition());
   }
-  setVerticalPosition(game_win, game, game_clock);
+  setVerticalPosition(game, game_clock);
   if (game_win->getJump()) {
     game->setIfCanJump();
     if (game->getCanJump()) {
       game->setJumpMoment(elapsed_time);
     }
   }
+  game_win->setPlayerPosition(game->getPlayerPosition());
 }
 
 void updateWindow(GameWindow* game_win, Master* master_gui) {
