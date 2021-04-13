@@ -19,9 +19,9 @@ class Game final {
 
     const float _GAMEBOARD_SIZE_X = 800;
     const float _GAMEBOARD_SIZE_Y = 600;
-    const float _PLAYER_SIZE_X = 20;
-    const float _PLAYER_SIZE_Y = 50;
-    const float _MOVE_DISTANCE = 10;
+    const float _PLAYER_SIZE_X = 10;
+    const float _PLAYER_SIZE_Y = _PLAYER_SIZE_X * 3.f;
+    const float _MOVE_DISTANCE = _PLAYER_SIZE_X * 0.5f;
     float _game_move_clock = 0;
     float _moment_of_jump = 0;
     bool _player_can_jump = true;
