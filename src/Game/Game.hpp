@@ -21,7 +21,7 @@ class Game final {
     const float _GAMEBOARD_SIZE_Y = 600;
     const float _PLAYER_SIZE_X = 20;
     const float _PLAYER_SIZE_Y = 50;
-    const float _MOVE_DISTANCE = 3;
+    const float _MOVE_DISTANCE = 6;
 
     GameBoard _gameboard;
     GameEntity _player;
