@@ -5,16 +5,7 @@
 */
 
 
-#include <memory>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Window.hpp>
-#include <iostream>
-#include "../Game/GameBoard.hpp"
-#include "../Game/Dimensions.hpp"
-#include "../Game/Game.hpp"
-#include "../GUI/Master.hpp"
-#include "../GUI/GameWindow.hpp"
+#include "Client.hpp"
 
 
 int main() {
@@ -26,21 +17,12 @@ int main() {
   while (keepProgramOpen) {
     sf::Event event;
 
-    while(master_gui.getWindow()->pollEvent(event)) {game_win_output = game_win.processEvent(event);}
+    while(master_gui.getWindow()->pollEvent(event)) {
+      game_win.processEvent(event);
+      concludeEvents(&game_win, &master_gui, &game);
+    }
     
-    if (game_win_output == "close window") {
-      master_gui.closeWindow();
-    }
-    else if (game_win_output == "move left") {
-      game.movePlayerHorizontal(1);
-    }
-    else if (game_win_output == "move right") {
-      game.movePlayerHorizontal(-1);
-    }
-
-    master_gui.clearWindow();
-    game_win.drawWindow(master_gui);
-    master_gui.displayWindow();
+    updateWindow(&game_win, &master_gui);
 
     if (!master_gui.getOpen()) {
       keepProgramOpen = false;

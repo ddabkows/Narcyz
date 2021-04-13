@@ -34,4 +34,10 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game) {
     game_win->setPlayerPosition(game->getPlayerPosition());
   }
 }
+
+void updateWindow(GameWindow* game_win, Master* master_gui) {
+  master_gui->clearWindow();
+  game_win->drawWindow(*master_gui);
+  master_gui->displayWindow();
+}
 #endif
