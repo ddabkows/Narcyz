@@ -18,10 +18,8 @@ int main() {
   while (keepProgramOpen) {
     sf::Event event;
 
-    while(master_gui.getWindow()->pollEvent(event)) {
-      game_win.processEvent(event);
-      concludeEvents(&game_win, &master_gui, &game, game_clock);
-    }
+    while(master_gui.getWindow()->pollEvent(event)) {game_win.processEvent(event);}
+    concludeEvents(&game_win, &master_gui, &game, game_clock);
     
     updateWindow(&game_win, &master_gui);
 
