@@ -15,34 +15,38 @@ void GameWindow::drawWindow(Master master) {
   master.drawRectangle(_player.getRectangle());
 }
 
-std::string GameWindow::processEvent(sf::Event user_event) {
-  std::string user_event_result;
+void GameWindow::processEvent(sf::Event user_event) {
 
   switch (user_event.type) {
     case sf::Event::Closed : {
-      user_event_result = "close window";
+      _close_window = true;
       break;
     }
     case sf::Event::KeyPressed : {
       if (user_event.key.code == 3) {
-        user_event_result = "move right";
+        _move_right = true;
         break;
       }
       else if (user_event.key.code == 0) {
-        user_event_result = "move left";
-        break;
-      }
-      else {
-        user_event_result = "do nothing";
+        _move_left = true;
         break;
       }
       break;
     }
     default : {
-      user_event_result = "do nothing";
       break;
     }
   }
-  
-  return user_event_result;
 }
+
+
+// Setters
+void GameWindow::setPlayerPosition(const Dimensions& pos_to_set) {
+  _player.setPosition(pos_to_set.x, pos_to_set.y);
+}
+
+
+// Getters
+const bool& GameWindow::getCloseWindow() const {return _close_window;}
+const bool& GameWindow::getMoveLeft() const {return _move_left;}
+const bool& GameWindow::getMoveRight() const {return _move_right;}

@@ -7,6 +7,7 @@
 
 #include "Rectangle.hpp"
 #include "Master.hpp"
+#include "../Game/Dimensions.hpp"
 #include <memory>
 
 
@@ -21,6 +22,9 @@ class GameWindow {
 
     Rectangle _background;
     Rectangle _player;
+    bool _move_right = false;
+    bool _move_left = false;
+    bool _close_window = false;
 
   public:
     // Constructor
@@ -38,11 +42,15 @@ class GameWindow {
 
     // Methods
     void drawWindow(Master);
-    std::string processEvent(sf::Event);
+    void processEvent(sf::Event);
 
     // Setters
+    void setPlayerPosition(const Dimensions&);
 
     // Getters
+    const bool& getMoveLeft() const;
+    const bool& getMoveRight() const;
+    const bool& getCloseWindow() const;
 
     // Destructor
     ~GameWindow() = default;
