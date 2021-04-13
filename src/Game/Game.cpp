@@ -19,9 +19,6 @@ void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
     if ((move_direction < 0 && 0 < getPlayerPosition().x) || (move_direction > 0 && getPlayerPosition().x + getPlayerSize().x < getBoardSize().x)) {
       _player.horizontalMove(move_direction);
     }
-    else {
-      std::cout << "Bounds encountered" << std::endl;
-    }
     _game_move_clock = time_elapsed;
   }
 }
@@ -37,7 +34,7 @@ void Game::setIfCanJump() {
 
 void Game::setVerticalPosition(float moment) {
   float time_elapsed_since_ground = moment - _moment_of_jump;
-  float vertical_position_to_set = 100.f * time_elapsed_since_ground * time_elapsed_since_ground - 200.f * time_elapsed_since_ground;
+  float vertical_position_to_set = 400.f * time_elapsed_since_ground * time_elapsed_since_ground - 400.f * time_elapsed_since_ground;
 
   _player.setPosition(_player.getPosition().x, _gameboard.getSize().y - _player.getSize().y + vertical_position_to_set);
 }
