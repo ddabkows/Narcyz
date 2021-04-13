@@ -21,7 +21,8 @@ class Game final {
     const float _GAMEBOARD_SIZE_Y = 600;
     const float _PLAYER_SIZE_X = 20;
     const float _PLAYER_SIZE_Y = 50;
-    const float _MOVE_DISTANCE = 6;
+    const float _MOVE_DISTANCE = 10;
+    float _game_move_clock = 0;
 
     GameBoard _gameboard;
     GameEntity _player;
@@ -40,7 +41,7 @@ class Game final {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
-    void movePlayerHorizontal(float);
+    void movePlayerHorizontal(float, float);
 
     // Setters
 
