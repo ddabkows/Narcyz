@@ -6,9 +6,11 @@
 
 
 #include "Client.hpp"
+#include <Windows.h>
 
 
 int main() {
+  ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false);
   Game game;
   Master master_gui;
   GameWindow game_win(game.getPlayerSize().x, game.getPlayerSize().y, game.getPlayerPosition().x, game.getPlayerPosition().y);
@@ -27,5 +29,6 @@ int main() {
       keepProgramOpen = false;
     }
   }
+  FreeConsole();
   return 0;
 }
