@@ -21,16 +21,18 @@
 #define _CLIENT_H_
 
 
-void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game) {
+void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Clock game_clock) {
+  float elapsed_time = game_clock.getElapsedTime().asSeconds();
+
   if (game_win->getCloseWindow()) {
     master_gui->closeWindow();
   }
   else if (game_win->getMoveLeft()) {
-    game->movePlayerHorizontal(-1);
+    game->movePlayerHorizontal(-1, elapsed_time);
     game_win->setPlayerPosition(game->getPlayerPosition());
   }
   else if (game_win->getMoveRight()) {
-    game->movePlayerHorizontal(1);
+    game->movePlayerHorizontal(1, elapsed_time);
     game_win->setPlayerPosition(game->getPlayerPosition());
   }
 }

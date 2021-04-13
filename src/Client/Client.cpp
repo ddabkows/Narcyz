@@ -13,13 +13,14 @@ int main() {
   Master master_gui;
   GameWindow game_win(game.getPlayerSize().x, game.getPlayerSize().y, game.getPlayerPosition().x, game.getPlayerPosition().y);
   bool keepProgramOpen = true;
-  std::string game_win_output;
+  sf::Clock game_clock;
+
   while (keepProgramOpen) {
     sf::Event event;
 
     while(master_gui.getWindow()->pollEvent(event)) {
       game_win.processEvent(event);
-      concludeEvents(&game_win, &master_gui, &game);
+      concludeEvents(&game_win, &master_gui, &game, game_clock);
     }
     
     updateWindow(&game_win, &master_gui);
