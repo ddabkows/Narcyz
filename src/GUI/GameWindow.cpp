@@ -71,6 +71,10 @@ void GameWindow::setPlayerFallingTexture() {
   _player.setFallingTexture();
 }
 
+void GameWindow::setPlayerStandingTexture() {
+  _player.setStandingTexture();
+}
+
 void GameWindow::setPlayerWalkingTexture() {
   _player.setWalkingTexture();
 }
@@ -87,9 +91,14 @@ void GameWindow::swapPlayerScaleRight() {
   }
 }
 
+void GameWindow::setWalkTimer(float new_time) {
+  _walk_timer = new_time;
+}
+
 
 // Getters
 const bool& GameWindow::getCloseWindow() const {return _close_window;}
 const bool& GameWindow::getMoveLeft() const {return _move_left;}
 const bool& GameWindow::getMoveRight() const {return _move_right;}
 const bool& GameWindow::getJump() const {return _jump;}
+const float& GameWindow::getWalkTimer() const {return _walk_timer;}

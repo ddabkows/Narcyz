@@ -21,12 +21,15 @@ class PlayerSprite : public Sprite {
     using myClass = Sprite;
 
     std::shared_ptr<sf::Texture> _falling_texture;
+    std::shared_ptr<sf::Texture> _walking_texture;
 
   public:
   // Constructor
-    PlayerSprite(float size_x, float size_y, float pos_x, float pos_y, sf::Color inside_color, float rotation, std::shared_ptr<sf::Texture> texture, std::shared_ptr <sf::Texture> falling_texture) :
+    PlayerSprite(float size_x, float size_y, float pos_x, float pos_y, sf::Color inside_color, float rotation, std::shared_ptr<sf::Texture> texture, std::shared_ptr <sf::Texture> falling_texture,
+                           std::shared_ptr<sf::Texture> walking_texture) :
       Sprite(size_x, size_y, pos_x, pos_y, inside_color, rotation, texture),
-      _falling_texture(falling_texture) {}
+      _falling_texture(falling_texture),
+      _walking_texture(walking_texture) {}
     // Copy
     PlayerSprite(const myClass&) = delete;
     myClass& operator=(const myClass&) = delete;
@@ -36,8 +39,9 @@ class PlayerSprite : public Sprite {
     myClass& operator=(myClass&&) = delete;
 
     // Methods
-    void setWalkingTexture();
+    void setStandingTexture();
     void setFallingTexture();
+    void setWalkingTexture();
 
     // Setters
 

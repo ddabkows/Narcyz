@@ -20,6 +20,8 @@ void Master::setupPlayerTextures() {
   _player_texture->loadFromFile("../img/player.png");
   _player_falling_texture = std::make_shared<sf::Texture>();
   _player_falling_texture->loadFromFile("../img/player_falling.png");
+  _player_walking_texture = std::make_shared<sf::Texture>();
+  _player_walking_texture->loadFromFile("../img/player_walking.png");
 }
 
 void Master::clearWindow() {
@@ -50,4 +52,5 @@ void Master::closeWindow() {
 std::shared_ptr<sf::RenderWindow>& Master::getWindow() {return _window;}
 std::shared_ptr<sf::Texture>& Master::getPlayerTexture() {return _player_texture;}
 std::shared_ptr<sf::Texture>& Master::getPlayerFallingTexture() {return _player_falling_texture;}
+std::shared_ptr<sf::Texture>& Master::getPlayerWalkingTexture() {return _player_walking_texture;}
 bool Master::getOpen() {return _window->isOpen();}

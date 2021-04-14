@@ -26,10 +26,14 @@ class Master {
     std::shared_ptr<sf::RenderWindow> _window;
     std::shared_ptr<sf::Texture> _player_texture;
     std::shared_ptr<sf::Texture> _player_falling_texture;
+    std::shared_ptr<sf::Texture> _player_walking_texture;
 
   public:
     // Constructor
-    Master() : _window() {
+    Master() : _window(),
+                      _player_texture(),
+                      _player_falling_texture(),
+                      _player_walking_texture() {
       setupWindow();
       setupPlayerTextures();
     }
@@ -57,6 +61,7 @@ class Master {
      std::shared_ptr<sf::RenderWindow>& getWindow();
      std::shared_ptr<sf::Texture>& getPlayerTexture();
      std::shared_ptr<sf::Texture>& getPlayerFallingTexture();
+     std::shared_ptr<sf::Texture>& getPlayerWalkingTexture();
     bool getOpen();
 
     // Destructor

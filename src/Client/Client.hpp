@@ -21,7 +21,7 @@
 #define _CLIENT_H_
 
 
-void setVerticalPosition(GameWindow* game_win, Game* game, sf::Clock game_clock) {
+void setContext(GameWindow* game_win, Game* game, sf::Clock game_clock) {
   float elapsed_time = game_clock.getElapsedTime().asSeconds();
 
   if (!game->getCanJump()) {
@@ -33,7 +33,17 @@ void setVerticalPosition(GameWindow* game_win, Game* game, sf::Clock game_clock)
     }
   }
   else {
-    game_win->setPlayerWalkingTexture();
+    float time_since_last_step = game_clock.getElapsedTime().asSeconds() - game_win->getWalkTimer();
+
+    if (time_since_last_step > 0.6f) {
+      game_win->setWalkTimer(game_clock.getElapsedTime().asSeconds());
+      game_win->setPlayerStandingTexture();
+    }
+    else if (time_since_last_step > 0.3f) {
+      if (game_win->getMoveLeft() || game_win->getMoveRight()) {
+        game_win->setPlayerWalkingTexture();
+      }
+    }
   }
 }
 
@@ -51,7 +61,7 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
     game->movePlayerHorizontal(1, elapsed_time);
     game_win->swapPlayerScaleRight();
   }
-  setVerticalPosition(game_win, game, game_clock);
+  setContext(game_win, game, game_clock);
   if (game_win->getJump()) {
     game->setIfCanJump();
     if (game->getCanJump()) {

@@ -11,7 +11,7 @@
 
 // Methods
 void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
-  if (time_elapsed - _game_move_clock > 0.02) {
+  if (time_elapsed - _game_move_clock > 0.02f) {
     float move_direction = _MOVE_DISTANCE;
     if (move_x < 0) {
       move_direction = -move_direction;
