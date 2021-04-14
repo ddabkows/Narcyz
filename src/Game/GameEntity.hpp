@@ -15,11 +15,15 @@ class GameEntity {
   private:
     // Trait
     using myClass = GameEntity;
+
+protected:
     Dimensions _position;
     Dimensions _size;
 
   public:
     // Constructor
+    GameEntity() = default;
+
     GameEntity(float size_x, float size_y, float pos_x, float pos_y) : _position(),
                                                                _size() {
       setSize(size_x, size_y);
@@ -27,7 +31,10 @@ class GameEntity {
     }
 
     // Copy
-    GameEntity(const myClass&) = delete;
+    GameEntity(const myClass& game_entity) {
+      _position = game_entity._position;
+      _size = game_entity._size;
+    }
     myClass& operator=(const myClass&) = delete;
 
     // Move

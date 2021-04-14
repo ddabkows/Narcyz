@@ -12,9 +12,13 @@
 // Methods
 void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
   if (time_elapsed - _game_move_clock > 0.02f) {
-    float move_direction = _MOVE_DISTANCE;
+    float move_direction = _PLAYER_MOVE_DISTANCE;
     if (move_x < 0) {
       move_direction = -move_direction;
+      _player.lookLeft();
+    }
+    else {
+      _player.lookRight();
     }
     if ((move_direction < 0 && 0 < getPlayerPosition().x) || (move_direction > 0 && getPlayerPosition().x + getPlayerSize().x < getBoardSize().x)) {
       _player.horizontalMove(move_direction);
