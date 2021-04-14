@@ -6,11 +6,9 @@
 
 
 #include "Client.hpp"
-#include <Windows.h>
 
 
 int main() {
-  ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false);
   Game game;
   Master master_gui;
   // 10.f and 30.f being the size of the player.png
@@ -32,6 +30,5 @@ int main() {
       keepProgramOpen = false;
     }
   }
-  FreeConsole();
   return 0;
 }
