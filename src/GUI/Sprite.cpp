@@ -27,7 +27,12 @@ void Sprite::setPosition(float pos_x, float pos_y) {
   _sprite.setPosition(pos_x, pos_y);
 }
 
+void Sprite::setScale(float scale_x, float scale_y) {
+  _sprite.setScale(scale_x, scale_y);
+}
+
 // Getters
 const sf::Sprite& Sprite::getSprite() const { return _sprite;}
 const float& Sprite::getX() const {return _sprite.getPosition().x;}
 const float& Sprite::getY() const {return _sprite.getPosition().y;}
+const sf::Vector2f& Sprite::getScale() const { return _sprite.getScale();}

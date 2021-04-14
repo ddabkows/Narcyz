@@ -44,11 +44,13 @@ protected:
 
     // Setters
     void setPosition(float, float);
+    void setScale(float, float);
 
     // Getters
     const sf::Sprite& getSprite() const;
     const float& getX() const;
     const float& getY() const;
+    const sf::Vector2f& getScale() const;
 
     // Destructor
     ~Sprite() = default;

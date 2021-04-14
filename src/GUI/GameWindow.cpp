@@ -12,6 +12,9 @@
 // Methods
 void GameWindow::drawWindow(Master master) {
   master.drawRectangle(_background.getRectangle());
+  if (_player.getScale().x < 0) {
+    _player.setPosition(_player.getX() - _player.getScale().x * 10.f, _player.getY());
+  }
   master.drawSprite(_player.getSprite());
 }
 
@@ -63,11 +66,25 @@ void GameWindow::processEvent(sf::Event user_event) {
 void GameWindow::setPlayerPosition(const Dimensions& pos_to_set) {
   _player.setPosition(pos_to_set.x, pos_to_set.y);
 }
+
 void GameWindow::setPlayerFallingTexture() {
   _player.setFallingTexture();
 }
+
 void GameWindow::setPlayerWalkingTexture() {
   _player.setWalkingTexture();
+}
+
+void GameWindow::swapPlayerScaleLeft() {
+  if (_player.getScale().x > 0) {
+    _player.setScale(-_player.getScale().x, _player.getScale().y);
+  }
+}
+
+void GameWindow::swapPlayerScaleRight() {
+  if (_player.getScale().x < 0) {
+    _player.setScale(-_player.getScale().x, _player.getScale().y);
+  }
 }
 
 

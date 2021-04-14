@@ -52,6 +52,8 @@ class GameWindow {
     void setPlayerPosition(const Dimensions&);
     void setPlayerFallingTexture();
     void setPlayerWalkingTexture();
+    void swapPlayerScaleLeft();
+    void swapPlayerScaleRight();
 
     // Getters
     const bool& getMoveLeft() const;

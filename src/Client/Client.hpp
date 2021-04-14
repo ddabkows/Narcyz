@@ -45,9 +45,11 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
   }
   else if (game_win->getMoveLeft()) {
     game->movePlayerHorizontal(-1, elapsed_time);
+    game_win->swapPlayerScaleLeft();
   }
   else if (game_win->getMoveRight()) {
     game->movePlayerHorizontal(1, elapsed_time);
+    game_win->swapPlayerScaleRight();
   }
   setVerticalPosition(game_win, game, game_clock);
   if (game_win->getJump()) {
