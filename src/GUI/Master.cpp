@@ -15,9 +15,11 @@ void Master::setupWindow() {
   _window->setFramerateLimit(60);
 }
 
-void Master::setupPlayerTexture() {
+void Master::setupPlayerTextures() {
   _player_texture = std::make_shared<sf::Texture>();
   _player_texture->loadFromFile("../img/player.png");
+  _player_falling_texture = std::make_shared<sf::Texture>();
+  _player_falling_texture->loadFromFile("../img/player_falling.png");
 }
 
 void Master::clearWindow() {
@@ -47,4 +49,5 @@ void Master::closeWindow() {
 // Getters
 std::shared_ptr<sf::RenderWindow>& Master::getWindow() {return _window;}
 std::shared_ptr<sf::Texture>& Master::getPlayerTexture() {return _player_texture;}
+std::shared_ptr<sf::Texture>& Master::getPlayerFallingTexture() {return _player_falling_texture;}
 bool Master::getOpen() {return _window->isOpen();}

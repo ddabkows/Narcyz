@@ -25,12 +25,13 @@ class Master {
 
     std::shared_ptr<sf::RenderWindow> _window;
     std::shared_ptr<sf::Texture> _player_texture;
+    std::shared_ptr<sf::Texture> _player_falling_texture;
 
   public:
     // Constructor
     Master() : _window() {
       setupWindow();
-      setupPlayerTexture();
+      setupPlayerTextures();
     }
 
     // Copy
@@ -43,7 +44,7 @@ class Master {
 
     // Methods
     void setupWindow();
-    void setupPlayerTexture();
+    void setupPlayerTextures();
     void clearWindow();
     void drawRectangle(sf::RectangleShape);
     void drawSprite(sf::Sprite);
@@ -55,6 +56,7 @@ class Master {
     // Getters
      std::shared_ptr<sf::RenderWindow>& getWindow();
      std::shared_ptr<sf::Texture>& getPlayerTexture();
+     std::shared_ptr<sf::Texture>& getPlayerFallingTexture();
     bool getOpen();
 
     // Destructor

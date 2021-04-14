@@ -63,6 +63,12 @@ void GameWindow::processEvent(sf::Event user_event) {
 void GameWindow::setPlayerPosition(const Dimensions& pos_to_set) {
   _player.setPosition(pos_to_set.x, pos_to_set.y);
 }
+void GameWindow::setPlayerFallingTexture() {
+  _player.setFallingTexture();
+}
+void GameWindow::setPlayerWalkingTexture() {
+  _player.setWalkingTexture();
+}
 
 
 // Getters

@@ -9,6 +9,7 @@
 #include <memory>
 #include "Rectangle.hpp"
 #include "Sprite.hpp"
+#include "PlayerSprite.hpp"
 #include "Master.hpp"
 
 
@@ -22,7 +23,7 @@ class GameWindow {
     using myClass = GameWindow;
 
     Rectangle _background;
-    Sprite _player;
+    PlayerSprite _player;
     bool _move_right = false;
     bool _move_left = false;
     bool _close_window = false;
@@ -30,9 +31,10 @@ class GameWindow {
 
   public:
     // Constructor
-    GameWindow(float player_size_x, float player_size_y, float player_pos_x, float player_pos_y, std::shared_ptr<sf::Texture> texture) : 
-      _background(800.f, 600.f, 0.f, 0.f, sf::Color::Green, sf::Color(0, 0, 0, 255), 0.f, 0.f),
-      _player(player_size_x, player_size_y, player_pos_x, player_pos_y, sf::Color(255, 255, 255, 255), 0.f, texture) {}
+    GameWindow(float player_size_x, float player_size_y, float player_pos_x, float player_pos_y, 
+                              std::shared_ptr<sf::Texture> player_texture, std::shared_ptr<sf::Texture> player_falling_texture) : 
+      _background(800.f, 600.f, 0.f, 0.f, sf::Color(120, 120, 120, 120), sf::Color(0, 0, 0, 255), 0.f, 0.f),
+      _player(player_size_x, player_size_y, player_pos_x, player_pos_y, sf::Color(255, 255, 255, 255), 0.f, player_texture, player_falling_texture) {}
 
     // Copy
     GameWindow(const myClass&) = delete;
@@ -48,6 +50,8 @@ class GameWindow {
 
     // Setters
     void setPlayerPosition(const Dimensions&);
+    void setPlayerFallingTexture();
+    void setPlayerWalkingTexture();
 
     // Getters
     const bool& getMoveLeft() const;

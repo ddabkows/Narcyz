@@ -14,11 +14,12 @@
 #define _SPRITE_H_
  
 
-class Sprite final {
+class Sprite {
   private:
     // Trait
     using myClass = Sprite;
 
+protected:
     sf::Sprite _sprite;
     std::shared_ptr<sf::Texture> _texture;
 

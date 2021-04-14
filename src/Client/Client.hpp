@@ -21,15 +21,19 @@
 #define _CLIENT_H_
 
 
-void setVerticalPosition(Game* game, sf::Clock game_clock) {
+void setVerticalPosition(GameWindow* game_win, Game* game, sf::Clock game_clock) {
   float elapsed_time = game_clock.getElapsedTime().asSeconds();
 
   if (!game->getCanJump()) {
+    game_win->setPlayerFallingTexture();
     game->setVerticalPosition(elapsed_time);
     if (game->getPlayerPosition().y > game->getBoardSize().y - game->getPlayerSize().y) {
       game->putPlayerToGround();
       game->setIfCanJump();
     }
+  }
+  else {
+    game_win->setPlayerWalkingTexture();
   }
 }
 
@@ -45,7 +49,7 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
   else if (game_win->getMoveRight()) {
     game->movePlayerHorizontal(1, elapsed_time);
   }
-  setVerticalPosition(game, game_clock);
+  setVerticalPosition(game_win, game, game_clock);
   if (game_win->getJump()) {
     game->setIfCanJump();
     if (game->getCanJump()) {
