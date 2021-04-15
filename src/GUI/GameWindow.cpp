@@ -16,6 +16,9 @@ void GameWindow::drawWindow(Master master) {
     _player.setPosition(_player.getX() - _player.getScale().x * 10.f, _player.getY());
   }
   master.drawSprite(_player.getSprite());
+  for (std::size_t bullet = 0; bullet < _bullets.size(); ++bullet) {
+    master.drawRectangle(_bullets[bullet].getRectangle());
+  }
 }
 
 void GameWindow::processEvent(sf::Event user_event) {
@@ -66,6 +69,15 @@ void GameWindow::processEvent(sf::Event user_event) {
     default : {
       break;
     }
+  }
+}
+
+void GameWindow::createBullets(std::vector<std::shared_ptr<Bullet>> bullets) {
+  _bullets.clear();
+  for (std::size_t bullet = 0; bullet < bullets.size(); ++bullet) {
+    _bullets.emplace_back(bullets[bullet]->getSize().x, bullets[bullet]->getSize().y,
+      bullets[bullet]->getPosition().x, bullets[bullet]->getPosition().y,
+      sf::Color::White, sf::Color::Black, 0.2f, 0.f);
   }
 }
 
