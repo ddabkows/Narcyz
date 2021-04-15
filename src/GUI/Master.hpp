@@ -66,6 +66,7 @@ class Master {
      std::shared_ptr<sf::Texture>& getPlayerTexture();
      std::shared_ptr<sf::Texture>& getPlayerFallingTexture();
      std::shared_ptr<sf::Texture>& getPlayerWalkingTexture();
+     std::shared_ptr<sf::Texture>& getBulletTexture();
     bool getOpen();
 
     // Destructor

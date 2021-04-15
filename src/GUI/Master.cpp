@@ -58,4 +58,5 @@ std::shared_ptr<sf::RenderWindow>& Master::getWindow() {return _window;}
 std::shared_ptr<sf::Texture>& Master::getPlayerTexture() {return _player_texture;}
 std::shared_ptr<sf::Texture>& Master::getPlayerFallingTexture() {return _player_falling_texture;}
 std::shared_ptr<sf::Texture>& Master::getPlayerWalkingTexture() {return _player_walking_texture;}
+std::shared_ptr<sf::Texture>& Master::getBulletTexture() {return _bullet_texture;}
 bool Master::getOpen() {return _window->isOpen();}
