@@ -10,13 +10,11 @@
 
 // Methods
 void Player::lookLeft() {
-  _looking_left = true;
   _looking_right = false;
 }
 
 void Player::lookRight() {
   _looking_right = true;
-  _looking_left = false;
 }
 
 void Player::shoot(std::vector<Bullet> bullets) {

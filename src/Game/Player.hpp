@@ -25,7 +25,6 @@ class Player : public GameEntity {
     Weapon _weapon;
 
     bool _looking_right = true;
-    bool _looking_left = false;
 
 public:
   // Constructor
