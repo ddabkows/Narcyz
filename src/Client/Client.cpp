@@ -14,7 +14,7 @@ int main() {
   // 10.f and 30.f being the size of the player.png
   GameWindow game_win(game.getPlayerSize().x / 20.f, game.getPlayerSize().y / 60.f,
                                                game.getPlayerPosition().x, game.getPlayerPosition().y, master_gui.getPlayerTexture(), master_gui.getPlayerFallingTexture(),
-                                               master_gui.getPlayerWalkingTexture());
+                                               master_gui.getPlayerWalkingTexture(), master_gui.getBulletTexture());
   bool keepProgramOpen = true;
   sf::Clock game_clock;
 
