@@ -18,7 +18,7 @@ std::vector<std::shared_ptr<Bullet>> Weapon::shoot(std::vector<std::shared_ptr<B
     position_to_set -= 10.f;
   }
   else {position_to_set += _size.x + 10.f;}
-  bullets.emplace_back(std::make_shared<Bullet>(10.f, 4.f, position_to_set, _position.y, direction * _bullet_speed, _damage));
+  bullets.emplace_back(std::make_shared<Bullet>(10.f, 4.f, position_to_set, _position.y, direction * _bullet_speed, _damage, looking_right));
 
   return bullets;
 }
