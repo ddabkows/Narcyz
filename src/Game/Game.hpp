@@ -53,6 +53,7 @@ class Game final {
     void setVerticalPosition(float);
     void putPlayerToGround();
     void shoot();
+    void moveBullets();
 
     // Setters
     void setJumpMoment(float);
@@ -64,6 +65,8 @@ class Game final {
     const Dimensions& getPlayerSize() const;
     const Dimensions& getPlayerPosition() const;
     const bool& getCanJump() const;
+    const std::vector<Bullet>& getBullets() const;
+    const float& getPlayerRateOfFire() const;
 
     // Destructor
     ~Game() = default;

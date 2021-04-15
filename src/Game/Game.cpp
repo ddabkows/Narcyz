@@ -48,7 +48,17 @@ void Game::putPlayerToGround() {
 }
 
 void Game::shoot() {
-  _player.shoot(_bullets);
+  _bullets = _player.shoot(_bullets);
+}
+
+void Game::moveBullets() {
+  for (std::size_t bullet = 0; bullet < _bullets.size(); ++bullet) {
+    _bullets[bullet].horizontalMove(_bullets[bullet].getMoveDistance());
+    if (0 < _bullets[bullet].getPosition().x + _bullets[bullet].getSize().x || _GAMEBOARD_SIZE_X < _bullets[bullet].getPosition().x) {
+      _bullets.erase(_bullets.begin() + bullet);
+      --bullet;
+    }
+  }
 }
 
 
@@ -66,3 +76,5 @@ const Dimensions& Game::getBoardSize() const {return _gameboard.getSize();}
 const Dimensions& Game::getPlayerSize() const {return _player.getSize();}
 const Dimensions& Game::getPlayerPosition() const {return _player.getPosition();}
 const bool& Game::getCanJump() const {return _player_can_jump;}
+const std::vector<Bullet>& Game::getBullets() const {return _bullets;}
+const float& Game::getPlayerRateOfFire() const {return _player.getRateOfFire();}
