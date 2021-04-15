@@ -24,6 +24,11 @@ void Master::setupPlayerTextures() {
   _player_walking_texture->loadFromFile("../img/player_walking.png");
 }
 
+void Master::setupBulletTexture() {
+  _bullet_texture = std::make_shared<sf::Texture>();
+  _bullet_texture->loadFromFile("../img/bullet.png");
+}
+
 void Master::clearWindow() {
   _window->clear();
 }

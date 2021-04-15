@@ -27,15 +27,18 @@ class Master {
     std::shared_ptr<sf::Texture> _player_texture;
     std::shared_ptr<sf::Texture> _player_falling_texture;
     std::shared_ptr<sf::Texture> _player_walking_texture;
+    std::shared_ptr<sf::Texture> _bullet_texture;
 
   public:
     // Constructor
     Master() : _window(),
-                      _player_texture(),
-                      _player_falling_texture(),
-                      _player_walking_texture() {
+      _player_texture(),
+      _player_falling_texture(),
+      _player_walking_texture(),
+      _bullet_texture() {
       setupWindow();
       setupPlayerTextures();
+      setupBulletTexture();
     }
 
     // Copy
@@ -49,6 +52,7 @@ class Master {
     // Methods
     void setupWindow();
     void setupPlayerTextures();
+    void setupBulletTexture();
     void clearWindow();
     void drawRectangle(sf::RectangleShape);
     void drawSprite(sf::Sprite);
