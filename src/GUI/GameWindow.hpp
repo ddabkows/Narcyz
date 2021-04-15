@@ -26,6 +26,7 @@ class GameWindow {
     PlayerSprite _player;
 
     float _walk_timer = 0.f;
+    float _shoot_timer = 0.f;
 
     bool _move_right = false;
     bool _move_left = false;
@@ -60,6 +61,7 @@ class GameWindow {
     void swapPlayerScaleLeft();
     void swapPlayerScaleRight();
     void setWalkTimer(float);
+    void setShootTimer(float);
 
     // Getters
     const bool& getMoveLeft() const;
@@ -68,6 +70,7 @@ class GameWindow {
     const bool& getJump() const;
     const bool& getShoot() const;
     const float& getWalkTimer() const;
+    const float& getShootTimer() const;
 
     // Destructor
     ~GameWindow() = default;

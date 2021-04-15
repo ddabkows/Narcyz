@@ -105,6 +105,10 @@ void GameWindow::setWalkTimer(float new_time) {
   _walk_timer = new_time;
 }
 
+void GameWindow::setShootTimer(float new_time) {
+  _shoot_timer = new_time;
+}
+
 
 // Getters
 const bool& GameWindow::getCloseWindow() const {return _close_window;}
@@ -113,3 +117,4 @@ const bool& GameWindow::getMoveRight() const {return _move_right;}
 const bool& GameWindow::getJump() const {return _jump;}
 const bool& GameWindow::getShoot() const {return _shoot;}
 const float& GameWindow::getWalkTimer() const {return _walk_timer;}
+const float& GameWindow::getShootTimer() const { return _shoot_timer;}
