@@ -42,7 +42,7 @@ public:
   myClass& operator=(myClass&&) = default;
 
   // Methods
-  void shoot(std::vector<Bullet>, bool);
+  std::vector<Bullet> shoot(std::vector<Bullet>, bool);
 
   // Setters
 
