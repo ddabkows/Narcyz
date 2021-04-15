@@ -31,6 +31,7 @@ class GameWindow {
     bool _move_left = false;
     bool _close_window = false;
     bool _jump = false;
+    bool _shoot = false;
 
   public:
     // Constructor
@@ -65,6 +66,7 @@ class GameWindow {
     const bool& getMoveRight() const;
     const bool& getCloseWindow() const;
     const bool& getJump() const;
+    const bool& getShoot() const;
     const float& getWalkTimer() const;
 
     // Destructor
