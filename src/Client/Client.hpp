@@ -68,6 +68,10 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
       game->setJumpMoment(elapsed_time);
     }
   }
+  if (elapsed_time > game_win->getShootTimer()) {
+    game->shoot();
+    game_win->setShootTimer(elapsed_time);
+  }
   game_win->setPlayerPosition(game->getPlayerPosition());
 }
 
