@@ -17,7 +17,7 @@ void GameWindow::drawWindow(Master master) {
   }
   master.drawSprite(_player.getSprite());
   for (std::size_t bullet = 0; bullet < _bullets.size(); ++bullet) {
-    master.drawRectangle(_bullets[bullet].getRectangle());
+    master.drawSprite(_bullets[bullet].getSprite());
   }
 }
 
@@ -75,9 +75,17 @@ void GameWindow::processEvent(sf::Event user_event) {
 void GameWindow::createBullets(std::vector<std::shared_ptr<Bullet>> bullets) {
   _bullets.clear();
   for (std::size_t bullet = 0; bullet < bullets.size(); ++bullet) {
-    _bullets.emplace_back(bullets[bullet]->getSize().x, bullets[bullet]->getSize().y,
-      bullets[bullet]->getPosition().x, bullets[bullet]->getPosition().y,
-      sf::Color::White, sf::Color::Black, 0.2f, 0.f);
+    float direction = 1.f;
+    float position_x = bullets[bullet]->getPosition().x;
+
+    if (!bullets[bullet]->getLookingRight()) { 
+      direction = -direction;
+      position_x -= bullets[bullet]->getSize().x / 2.f;
+    }
+
+    _bullets.emplace_back(direction, 1.f,
+     position_x, bullets[bullet]->getPosition().y,
+      sf::Color::White, 0.f, _bullet_texture);
   }
 }
 
