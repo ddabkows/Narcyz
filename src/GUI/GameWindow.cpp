@@ -44,7 +44,7 @@ void GameWindow::processEvent(sf::Event user_event) {
       break;
     }
     case sf::Event::KeyPressed : {
-      std::cout << user_event.key.code << std::endl;             //             <- Useful only to detect which key is pressed
+      //std::cout << user_event.key.code << std::endl;             //             <- Useful only to detect which key is pressed
       if (user_event.key.code == 3) {
         _move_right = true;
         break;
