@@ -36,7 +36,7 @@ protected:
     myClass& operator=(const myClass&) = delete;
 
     // Move
-    Sprite(myClass&&) = delete;
+    Sprite(myClass&&) = default;
     myClass& operator=(myClass&&) = delete;
 
     // Methods

@@ -33,7 +33,7 @@ class Rectangle final {
     myClass& operator=(const myClass&) = delete;
 
     // Move
-    Rectangle(myClass&&) = default;
+    Rectangle(myClass&&) = delete;
     myClass& operator=(myClass&&) = delete;
 
     // Methods
