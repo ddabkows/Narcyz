@@ -5,9 +5,11 @@
 */
 
 
+#include <vector>
 #include "GameBoard.hpp"
 #include "Weapon.hpp"
 #include "Player.hpp"
+#include "Bullet.hpp"
 
 
 #ifndef _GAME_H_
@@ -22,7 +24,6 @@ class Game final {
     const float _GAMEBOARD_SIZE_Y = 600.f;
     const float _PLAYER_SIZE_X = 30.f;
     const float _PLAYER_SIZE_Y = _PLAYER_SIZE_X * 3.f;
-    const float _PLAYER_MOVE_DISTANCE = 5.f;
     float _game_move_clock = 0.f;
     float _moment_of_jump = 0.f;
     bool _player_can_jump = true;
@@ -30,11 +31,12 @@ class Game final {
     GameBoard _gameboard;
     Weapon _simple_weapon;
     Player _player;
-
+    std::vector<Bullet> _bullets;
+    
   public:
     // Constructor
     Game() : _gameboard(_GAMEBOARD_SIZE_X, _GAMEBOARD_SIZE_Y),
-                     _simple_weapon(6.f, 4.f, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2 + _PLAYER_SIZE_X - 6.f, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y) + _PLAYER_SIZE_X / 3.f, 20.f, 1.f, 1.f),
+                     _simple_weapon(15.f, 5.f, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2 + _PLAYER_SIZE_X - 15.f, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y) + _PLAYER_SIZE_X, 20.f, 1.f, 1.f),
                      _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y), _simple_weapon) {}
 
     // Copy
@@ -50,6 +52,7 @@ class Game final {
     void setIfCanJump();
     void setVerticalPosition(float);
     void putPlayerToGround();
+    void shoot();
 
     // Setters
     void setJumpMoment(float);

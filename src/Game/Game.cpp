@@ -12,7 +12,7 @@
 // Methods
 void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
   if (time_elapsed - _game_move_clock > 0.02f) {
-    float move_direction = _PLAYER_MOVE_DISTANCE;
+    float move_direction = _player.getMoveDistance();
     if (move_x < 0) {
       move_direction = -move_direction;
       _player.lookLeft();
@@ -45,6 +45,10 @@ void Game::setVerticalPosition(float moment) {
 
 void Game::putPlayerToGround() {
   _player.setPosition(_player.getPosition().x, _gameboard.getSize().y - _player.getSize().y);
+}
+
+void Game::shoot() {
+  _player.shoot(_bullets);
 }
 
 
