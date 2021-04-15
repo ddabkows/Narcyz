@@ -46,6 +46,7 @@ class Bullet : public GameEntity {
     // Setters
 
     // Getters
+    const float& getMoveDistance() const;
 
     // Destructor
     ~Bullet() = default;
