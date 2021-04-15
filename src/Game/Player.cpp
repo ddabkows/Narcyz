@@ -17,8 +17,10 @@ void Player::lookRight() {
   _looking_right = true;
 }
 
-void Player::shoot(std::vector<Bullet> bullets) {
-  _weapon.shoot(bullets, _looking_right);
+std::vector<Bullet> Player::shoot(std::vector<Bullet> bullets) {
+  bullets = _weapon.shoot(bullets, _looking_right);
+
+  return bullets;
 }
 
 // Setters
@@ -26,3 +28,4 @@ void Player::shoot(std::vector<Bullet> bullets) {
 
 // Getters
 const float& Player::getMoveDistance() const {return _MOVE_DISTANCE;}
+const float& Player::getRateOfFire() const {return _weapon.getRateOfFire();}

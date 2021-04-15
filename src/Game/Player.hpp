@@ -42,12 +42,13 @@ public:
   // Methods
   void lookRight();
   void lookLeft();
-  void shoot(std::vector<Bullet>);
+  std::vector<Bullet> shoot(std::vector<Bullet>);
 
   // Setters
 
   // Getters
   const float& getMoveDistance() const;
+  const float& getRateOfFire() const;
 
   // Destructor
   ~Player() = default;
