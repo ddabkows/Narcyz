@@ -25,7 +25,6 @@ void Game::movePlayerHorizontal(float move_x, float time_elapsed) {
       _player.horizontalMove(move_direction);
     }
     _game_move_clock = time_elapsed;
-    _player.setWeaponY();
     _player.setWeaponX();
   }
 }

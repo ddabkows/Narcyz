@@ -37,7 +37,10 @@ class Game final {
     // Constructor
     Game() : _gameboard(_GAMEBOARD_SIZE_X, _GAMEBOARD_SIZE_Y),
                      _simple_weapon(15.f, 5.f, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2 + _PLAYER_SIZE_X - 15.f, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y) + _PLAYER_SIZE_X, 20.f, 1.f, 1.f),
-                     _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y), _simple_weapon) {}
+                     _player(_PLAYER_SIZE_X, _PLAYER_SIZE_Y, (_GAMEBOARD_SIZE_X - _PLAYER_SIZE_X) / 2, (_GAMEBOARD_SIZE_Y - _PLAYER_SIZE_Y), _simple_weapon) {
+      _player.setWeaponX();
+      _player.setWeaponY();
+    }
 
     // Copy
     Game(const myClass&) = delete;

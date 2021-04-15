@@ -75,7 +75,7 @@ void GameWindow::processEvent(sf::Event user_event) {
 void GameWindow::createBullets(std::vector<std::shared_ptr<Bullet>> bullets) {
   _bullets.clear();
   for (std::size_t bullet = 0; bullet < bullets.size(); ++bullet) {
-    float direction = 1.f;
+    float direction = bullets[bullet]->getSize().x / 10.f;
     float position_x = bullets[bullet]->getPosition().x;
 
     if (!bullets[bullet]->getLookingRight()) { 
@@ -83,7 +83,7 @@ void GameWindow::createBullets(std::vector<std::shared_ptr<Bullet>> bullets) {
       position_x -= bullets[bullet]->getSize().x / 2.f;
     }
 
-    _bullets.emplace_back(direction, 1.f,
+    _bullets.emplace_back(direction, bullets[bullet]->getSize().y / 4.f,
      position_x, bullets[bullet]->getPosition().y,
       sf::Color::White, 0.f, _bullet_texture);
   }
