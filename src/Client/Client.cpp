@@ -23,7 +23,7 @@ int main() {
 
     while(master_gui.getWindow()->pollEvent(event)) {game_win.processEvent(event);}
     concludeEvents(&game_win, &master_gui, &game, game_clock);
-    
+    std::cout << game.getBullets().size() << std::endl;
     updateWindow(&game_win, &master_gui);
 
     if (!master_gui.getOpen()) {

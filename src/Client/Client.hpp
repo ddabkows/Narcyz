@@ -68,7 +68,7 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
       game->setJumpMoment(elapsed_time);
     }
   }
-  if (elapsed_time > game_win->getShootTimer()) {
+  if (game_win->getShoot() && elapsed_time - game_win->getShootTimer() > game->getPlayerRateOfFire()) {
     game->shoot();
     game_win->setShootTimer(elapsed_time);
   }
