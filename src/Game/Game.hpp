@@ -31,7 +31,7 @@ class Game final {
     GameBoard _gameboard;
     Weapon _simple_weapon;
     Player _player;
-    std::vector<Bullet> _bullets;
+    std::vector<std::shared_ptr<Bullet>> _bullets;
     
   public:
     // Constructor
@@ -65,7 +65,7 @@ class Game final {
     const Dimensions& getPlayerSize() const;
     const Dimensions& getPlayerPosition() const;
     const bool& getCanJump() const;
-    const std::vector<Bullet>& getBullets() const;
+    const std::vector<std::shared_ptr<Bullet>>& getBullets() const;
     const float& getPlayerRateOfFire() const;
 
     // Destructor

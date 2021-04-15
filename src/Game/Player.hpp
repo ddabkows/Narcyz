@@ -42,9 +42,11 @@ public:
   // Methods
   void lookRight();
   void lookLeft();
-  std::vector<Bullet> shoot(std::vector<Bullet>);
+  std::vector<std::shared_ptr<Bullet>> shoot(std::vector<std::shared_ptr<Bullet>>);
 
   // Setters
+  void setWeaponX();
+  void setWeaponY();
 
   // Getters
   const float& getMoveDistance() const;

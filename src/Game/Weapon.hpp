@@ -6,6 +6,7 @@
 
 
 #include <vector>
+#include <memory>
 #include "GameEntity.hpp"
 #include "Bullet.hpp"
 
@@ -42,7 +43,7 @@ public:
   myClass& operator=(myClass&&) = default;
 
   // Methods
-  std::vector<Bullet> shoot(std::vector<Bullet>, bool);
+  std::vector<std::shared_ptr<Bullet>> shoot(std::vector<std::shared_ptr<Bullet>>, bool);
 
   // Setters
 

@@ -72,10 +72,13 @@ void concludeEvents(GameWindow* game_win, Master* master_gui, Game* game, sf::Cl
     game->shoot();
     game_win->setShootTimer(elapsed_time);
   }
-  game_win->setPlayerPosition(game->getPlayerPosition());
+  game->moveBullets();
 }
 
-void updateWindow(GameWindow* game_win, Master* master_gui) {
+void updateWindow(GameWindow* game_win, Master* master_gui, Game* game) {
+  game_win->setPlayerPosition(game->getPlayerPosition());
+  game_win->createBullets(game->getBullets());
+
   master_gui->clearWindow();
   game_win->drawWindow(*master_gui);
   master_gui->displayWindow();

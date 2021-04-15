@@ -18,27 +18,24 @@ class Bullet : public GameEntity {
     using myClass = Bullet;
 
     float _MOVE_DISTANCE;
-
-    bool _going_right;
+    float _DAMAGE;
 
   public:
     // Constructor
     Bullet() = default;
 
-    Bullet(float size_x, float size_y, float pos_x, float pos_y, float move_distance, bool going_right) : GameEntity(size_x, size_y, pos_x, pos_y),
+    Bullet(float size_x, float size_y, float pos_x, float pos_y, float move_distance, float damage) : GameEntity(size_x, size_y, pos_x, pos_y),
                                                                                                                                                                               _MOVE_DISTANCE(move_distance),
-                                                                                                                                                                              _going_right(going_right) {}
+                                                                                                                                                                              _DAMAGE(damage) {}
     
     // Copy
     Bullet(const myClass& bullet) : _MOVE_DISTANCE(bullet._MOVE_DISTANCE),
-                                                            _going_right(bullet._going_right) {}
+                                                           _DAMAGE(bullet._DAMAGE) {}
     myClass& operator=(const myClass&) = delete;
 
     // Move
-    Bullet(myClass&& bullet) {
-      _MOVE_DISTANCE = bullet._MOVE_DISTANCE;
-      _going_right = bullet._going_right;
-    }
+    Bullet(myClass&& bullet) : _MOVE_DISTANCE(bullet._MOVE_DISTANCE),
+                                                   _DAMAGE(bullet._DAMAGE) {}
     myClass& operator=(myClass&&) = delete;
 
     //Methods
