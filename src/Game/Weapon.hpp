@@ -5,7 +5,9 @@
 */
 
 
+#include <vector>
 #include "GameEntity.hpp"
+#include "Bullet.hpp"
 
 
 #ifndef _WEAPON_H_
@@ -30,11 +32,9 @@ public:
                                                                                                                                                                                                       _damage(damage) {}
 
   // Copy
-  Weapon(const myClass& weapon) {
-    _rate_of_fire = weapon._rate_of_fire;
-    _damage = weapon._damage;
-    _bullet_speed = weapon._bullet_speed;
-  }
+  Weapon(const myClass& weapon) : _rate_of_fire(weapon._rate_of_fire) ,
+                                                                _damage(weapon._damage),
+                                                                _bullet_speed(weapon._bullet_speed)  {}
   myClass& operator=(const myClass&) = default;
 
   // Move
@@ -42,6 +42,7 @@ public:
   myClass& operator=(myClass&&) = default;
 
   // Methods
+  void shoot(std::vector<Bullet>, bool);
 
   // Setters
 
