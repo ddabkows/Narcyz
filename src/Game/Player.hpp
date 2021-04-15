@@ -6,6 +6,7 @@
 
 
 #include <memory>
+#include <vector>
 #include "GameEntity.hpp"
 #include "Weapon.hpp"
 
@@ -16,8 +17,10 @@
 
 class Player : public GameEntity {
   private:
-    // Traits
+    // Trait
     using myClass = Player;
+
+    const float _MOVE_DISTANCE = 5.f;
 
     Weapon _weapon;
 
@@ -27,7 +30,7 @@ class Player : public GameEntity {
 public:
   // Constructor
   Player(float size_x, float size_y, float pos_x, float pos_y, Weapon weapon) : GameEntity(size_x, size_y, pos_x, pos_y),
-                                                                                                                                                                       _weapon() {}
+                                                                                                                                                                       _weapon(weapon) {}
 
   // Copy
   Player(const myClass&) = delete;
@@ -40,10 +43,12 @@ public:
   // Methods
   void lookRight();
   void lookLeft();
+  void shoot(std::vector<Bullet>);
 
   // Setters
 
   // Getters
+  const float& getMoveDistance() const;
 
   // Destructor
   ~Player() = default;
