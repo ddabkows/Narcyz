@@ -35,11 +35,11 @@ void setContext(GameWindow* game_win, Game* game, sf::Clock game_clock) {
   else {
     float time_since_last_step = game_clock.getElapsedTime().asSeconds() - game_win->getWalkTimer();
 
-    if (time_since_last_step > 0.6f) {
+    if (time_since_last_step > 0.4f) {
       game_win->setWalkTimer(game_clock.getElapsedTime().asSeconds());
       game_win->setPlayerStandingTexture();
     }
-    else if (time_since_last_step > 0.3f) {
+    else if (time_since_last_step > 0.2f) {
       if (game_win->getMoveLeft() || game_win->getMoveRight()) {
         game_win->setPlayerWalkingTexture();
       }
